@@ -1,6 +1,6 @@
-package com.learn.factory.simple;
+package com.learn.factory.method;
 
-public class WuLing implements Car{
+public class WuLing implements Car {
 
     @Override
     public void name() {

@@ -1,4 +1,4 @@
-package com.learn.factory.simple;
+package com.learn.factory.method;
 
 public interface Car {
     void name();

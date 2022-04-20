@@ -1,2 +1,5 @@
-package com.learn.factory.method;public interface CarFactory {
+package com.learn.factory.method;
+
+public interface CarFactory {
+    Car getCar();
 }
