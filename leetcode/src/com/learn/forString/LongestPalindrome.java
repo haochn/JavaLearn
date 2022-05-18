@@ -13,7 +13,7 @@ package com.learn.forString;
  * 但是！如果压根没有奇数的情况，这个1也不能随便加，所以还要分情况讨论
  *
  */
-public class longestPalindrome {
+public class LongestPalindrome {
     public int longestPalindrome(String s) {
         if (s.length() == 1) {
             return 1;
@@ -46,7 +46,7 @@ public class longestPalindrome {
     }
 
     public static void main(String[] args) {
-        longestPalindrome longestPalindrome = new longestPalindrome();
+        LongestPalindrome longestPalindrome = new LongestPalindrome();
         int maxLen = longestPalindrome.longestPalindrome("zeusnilemacaronimaisanitratetartinasiaminoracamelinsuez");
         System.out.println(maxLen);
     }
