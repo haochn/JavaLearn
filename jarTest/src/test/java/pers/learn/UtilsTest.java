@@ -2,6 +2,7 @@ package pers.learn;
 
 import com.opencsv.exceptions.CsvValidationException;
 import org.junit.Test;
+import pers.learn.utils.GenerateReference;
 import pers.learn.utils.Opencsv;
 
 import java.io.IOException;
@@ -35,5 +36,11 @@ public class UtilsTest {
     public void testCsv() throws CsvValidationException, IOException {
         Opencsv opencsv = new Opencsv();
         opencsv.testcsv();
+    }
+
+    @Test
+    public void testGenerateReference() throws IOException {
+        GenerateReference generateReference = new GenerateReference();
+        generateReference.main();
     }
 }
