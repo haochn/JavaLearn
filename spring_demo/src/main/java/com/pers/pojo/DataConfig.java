@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Data
-@Component
+@Component("config")
 public class DataConfig {
     public DataConfig(){
         System.out.println("pojo:"+ this.toString());

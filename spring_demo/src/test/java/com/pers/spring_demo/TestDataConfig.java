@@ -3,6 +3,7 @@ package com.pers.spring_demo;
 
 import com.pers.configuration.BeanConfiguration;
 import com.pers.pojo.DataConfig;
+import com.pers.pojo.GlobalConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -42,6 +43,24 @@ public class TestDataConfig {
         System.out.println(context.getBean("dataConfig"));
         // 类名
         System.out.println(context.getBean(DataConfig.class));
+    }
+
+    @Test
+    public void test3() {
+        // 基于注解 2.扫包+注解（实体类@Component,成员变量@Value进行赋值）
+        // DataConfig 对象已经 在BeanConfiguration 被托管给 Spring
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.pers.pojo");
+        // 类名
+        System.out.println(context.getBean(GlobalConfig.class));
+    }
+
+    @Test
+    public void test4() {
+        // 基于注解 2.扫包+注解（实体类@Component,成员变量@Value进行赋值）
+        // DataConfig 对象已经 在BeanConfiguration 被托管给 Spring
+        ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfiguration.class);
+        // 类名
+        System.out.println(context.getBean(GlobalConfig.class));
     }
 }
 
