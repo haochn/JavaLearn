@@ -1,7 +1,5 @@
 package pers.learn.thread;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 public class ABCSynch {
 
     // 成员内部类
@@ -27,13 +25,12 @@ public class ABCSynch {
                         self.notifyAll();
                     }
                     try {
-                        pre.wait();
-//                        if (count == 0) {
-//                            pre.notifyAll();
-//                        }
-//                        else {
-//                            pre.wait();
-//                        }
+                        if (count == 0) {
+                            pre.notifyAll();
+                        }
+                        else {
+                            pre.wait();
+                        }
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
