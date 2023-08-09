@@ -3,6 +3,10 @@ package pers.learn;
 import org.junit.Test;
 import pers.learn.thread.ABCReentrantLock;
 import pers.learn.thread.ABCSynch;
+import pers.learn.thread.MyCallable;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
 
 public class ThreadTest {
     @Test
@@ -36,5 +40,17 @@ public class ThreadTest {
         Thread.sleep(3);
 
 
+    }
+
+
+    @Test
+    public void callableTest() throws ExecutionException, InterruptedException {
+        MyCallable myCallable = new MyCallable();
+        FutureTask<Integer> integerFutureTask = new FutureTask<>(myCallable);
+        new Thread(integerFutureTask).start();
+        while (!integerFutureTask.isDone()) {
+            System.out.println(integerFutureTask.isDone());
+        }
+        System.out.println(integerFutureTask.get());
     }
 }
