@@ -4,6 +4,7 @@ import org.junit.Test;
 import pers.learn.thread.ABCReentrantLock;
 import pers.learn.thread.ABCSynch;
 import pers.learn.thread.MyCallable;
+import pers.learn.thread.MyThread;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
@@ -52,5 +53,13 @@ public class ThreadTest {
             System.out.println(integerFutureTask.isDone());
         }
         System.out.println(integerFutureTask.get());
+    }
+
+    @Test
+    public void myThread(){
+        MyThread hello = new MyThread("hello");
+        MyThread world = new MyThread("world");
+        hello.start();
+        world.start();
     }
 }
