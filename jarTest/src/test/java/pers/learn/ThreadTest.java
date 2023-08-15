@@ -1,11 +1,9 @@
 package pers.learn;
 
 import org.junit.Test;
-import pers.learn.thread.ABCReentrantLock;
-import pers.learn.thread.ABCSynch;
-import pers.learn.thread.MyCallable;
-import pers.learn.thread.MyThread;
+import pers.learn.thread.*;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
@@ -56,10 +54,37 @@ public class ThreadTest {
     }
 
     @Test
-    public void myThread(){
+    public void myThread() {
         MyThread hello = new MyThread("hello");
         MyThread world = new MyThread("world");
         hello.start();
         world.start();
+    }
+
+    @Test
+    public void lotteryTest() throws InterruptedException {
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(10);
+        arr.add(100);
+        arr.add(100);
+        arr.add(1000);
+        arr.add(10000);
+        arr.add(10001);
+        arr.add(10002);
+        arr.add(10003);
+        arr.add(10004);
+        arr.add(10005);
+
+
+        Lottery lottery1 = new Lottery("抽奖箱1", arr);
+        Lottery lottery2 = new Lottery("抽奖箱2", arr);
+
+        Thread.sleep(3);
+        lottery1.start();
+        lottery2.start();
+
+        lottery2.join();
+        lottery1.join();
+        System.out.println(arr);
     }
 }
