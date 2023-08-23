@@ -40,6 +40,10 @@ public class UtilsTest {
 
     @Test
     public void testGenerateReference() throws IOException {
+        String diameter = "4";
+        float d = Float.valueOf(diameter) / 10;
+        System.out.println(d);
+
         GenerateReference generateReference = new GenerateReference();
         generateReference.main();
     }
