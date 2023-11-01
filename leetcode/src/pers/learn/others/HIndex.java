@@ -15,13 +15,18 @@ public class HIndex {
      */
     public int hIndex(int[] citations) {
         Arrays.sort(citations);
-        int h = 0;
         int n = citations.length;
+        int h = n;
         for (int i = 0; i < n; i++) {
-            if (citations[i] > h && citations[i] <= n - i) {
-                h = citations[i];
+            if (citations[i] < h) {
+                h--;
             }
         }
         return h;
+    }
+
+    public static void main(String[] args) {
+        HIndex hIndex = new HIndex();
+        hIndex.hIndex(new int[]{3, 0, 6, 1, 5});
     }
 }
