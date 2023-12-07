@@ -89,13 +89,23 @@ public class UtilsTest {
         sb.append("update ? tb set tb.HANDLE_STATE ='3S',tb.MODIFY_DATE =sysdate() where PIPE_INST_ID =? ");
         List<String[]> params = new ArrayList<>();
         params.add(new String[]{midTable});
-        params.add(new String[]{pipeInstId,"1"});
+        params.add(new String[]{pipeInstId, "1"});
 
         String condition = defactoIdsSet.stream().map(n -> "?").collect(Collectors.joining(",", " and ID_IN_NMS in (", ")"));
         sb.append(condition);
-        defactoIdsSet.forEach(defactoId -> params.add(new String[]{defactoId,"1"}));
+        defactoIdsSet.forEach(defactoId -> params.add(new String[]{defactoId, "1"}));
 
         String sql = SqlUtils.replaceQuestionMark(sb.toString(), params);
         System.out.println(sql);
     }
+
+    @Test
+    public void intTest() {
+        String str = "231011171965376864";
+        System.out.println(Long.parseLong(str));
+        System.out.println(Long.MAX_VALUE);
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.parseInt(str));
+    }
+
 }

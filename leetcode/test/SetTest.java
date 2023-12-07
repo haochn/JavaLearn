@@ -1,6 +1,3 @@
-package pers.learn.test;
-
-
 import java.util.*;
 
 public class SetTest {

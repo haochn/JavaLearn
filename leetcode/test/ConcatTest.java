@@ -1,5 +1,3 @@
-package pers.learn.test;
-
 import java.util.HashMap;
 
 public class ConcatTest {
