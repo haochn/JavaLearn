@@ -2,6 +2,7 @@ package pers.learn.others;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class Solution {
@@ -100,6 +101,48 @@ public class Solution {
             return money;
         }
         return money - prices[0] - prices[1];
+    }
+
+    /**
+     * 82. 删除排序链表中的重复元素 II
+     * 给定一个已排序的链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字 。返回 已排序的链表 。
+     */
+    // Definition for singly-linked list.
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+    public ListNode deleteDuplicates(ListNode head) {
+        if (null == head || null == head.next) {
+            return head;
+        }
+        HashMap<Integer, Integer> map = new HashMap<>(8);
+        map.put(head.val, 1);
+        ListNode nextNode = head.next;
+        while (null != nextNode) {
+            // 遍历链表
+            if (map.containsKey(nextNode.val)) {
+                map.put(nextNode.val, map.get(nextNode.val) + 1);
+            }
+            else {
+                map.put(nextNode.val, 1);
+            }
+            nextNode = nextNode.next;
+        }
+        // TODO: 2024/1/16
     }
 
 }
