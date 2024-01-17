@@ -15,4 +15,15 @@ public class SolutionTest {
         int[] prices = new int[]{3, 2, 3};
         solution.buyChoco(prices, 3);
     }
+
+    @Test
+    public void deleteDuplicates() {
+        Solution solution = new Solution();
+        Solution.ListNode four = solution.new ListNode(0);
+        Solution.ListNode three2 = solution.new ListNode(0, four);
+        Solution.ListNode three = solution.new ListNode(0, three2);
+        Solution.ListNode two = solution.new ListNode(-1, three);
+        Solution.ListNode one = solution.new ListNode(-3, two);
+        Solution.ListNode listNode = solution.deleteDuplicates(one);
+    }
 }

@@ -1,9 +1,6 @@
 package pers.learn.others;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Solution {
 
@@ -112,14 +109,14 @@ public class Solution {
         int val;
         ListNode next;
 
-        ListNode() {
+        public ListNode() {
         }
 
-        ListNode(int val) {
+        public ListNode(int val) {
             this.val = val;
         }
 
-        ListNode(int val, ListNode next) {
+        public ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
         }
@@ -129,7 +126,7 @@ public class Solution {
         if (null == head || null == head.next) {
             return head;
         }
-        HashMap<Integer, Integer> map = new HashMap<>(8);
+        Map<Integer, Integer> map = new LinkedHashMap<>(8);
         map.put(head.val, 1);
         ListNode nextNode = head.next;
         while (null != nextNode) {
@@ -142,7 +139,21 @@ public class Solution {
             }
             nextNode = nextNode.next;
         }
-        // TODO: 2024/1/16
+        ListNode result = null;
+        ListNode pre = null;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == 1) {
+                ListNode tmp = new ListNode(entry.getKey());
+                if (null == result) {
+                    result = tmp;
+                    pre = tmp;
+                    continue;
+                }
+                pre.next = tmp;
+                pre = tmp;
+            }
+        }
+        return result;
     }
 
 }
