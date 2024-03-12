@@ -156,4 +156,28 @@ public class Solution {
         return result;
     }
 
+    /**
+     * 2129. 将标题首字母大写
+     * 给你一个字符串 title ，它由单个空格连接一个或多个单词组成，每个单词都只包含英文字母。请你按以下规则将每个单词的首字母大写 ：
+     * 如果单词的长度为 1 或者 2 ，所有字母变成小写。
+     * 否则，将单词首字母大写，剩余字母变成小写。
+     * 请你返回 大写后 的 title
+     *
+     * @param title
+     * @return
+     */
+    public String capitalizeTitle(String title) {
+        StringBuilder ans = new StringBuilder();
+        String[] words = title.split(" ");
+        for (String word : words) {
+            if (word.length() > 2) {
+                word = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+            }
+            else {
+                word = word.toLowerCase();
+            }
+            ans.append(word).append(" ");
+        }
+        return ans.substring(0, ans.length() - 1).toString();
+    }
 }

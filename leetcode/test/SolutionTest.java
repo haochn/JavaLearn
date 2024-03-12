@@ -26,4 +26,10 @@ public class SolutionTest {
         Solution.ListNode one = solution.new ListNode(-3, two);
         Solution.ListNode listNode = solution.deleteDuplicates(one);
     }
+
+    @Test
+    public void capitalizeTitleTest() {
+        Solution solution = new Solution();
+        solution.capitalizeTitle("capiTalIze tHe titLe");
+    }
 }
