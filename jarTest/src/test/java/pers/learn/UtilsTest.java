@@ -2,9 +2,7 @@ package pers.learn;
 
 import com.opencsv.exceptions.CsvValidationException;
 import org.junit.Test;
-import pers.learn.utils.GenerateReference;
-import pers.learn.utils.Opencsv;
-import pers.learn.utils.SqlUtils;
+import pers.learn.utils.*;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -54,7 +52,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void sqlUtilsTest(){
+    public void sqlUtilsTest() {
         String midTable = "im_syn_defacto_port";
         String pipeInstId = "231012104066390229";
         HashSet<String> defactoIdsSet = new HashSet<>();
@@ -108,4 +106,17 @@ public class UtilsTest {
         System.out.println(Integer.parseInt(str));
     }
 
+    @Test
+    public void SimpleCSVReaderTest() throws IOException {
+        ICSVReader csvReader = new SimpleCSVReader("C:\\Users\\HAO\\Desktop\\test.csv");
+        List<String> line;
+        while ((line = csvReader.readNext()) != null) {
+            int i = 1;
+            for (String s : line) {
+                System.out.print(i++);
+                System.out.print("=======");
+                System.out.println(s);
+            }
+        }
+    }
 }
