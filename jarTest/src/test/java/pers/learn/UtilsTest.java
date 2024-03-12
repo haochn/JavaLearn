@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -107,16 +108,20 @@ public class UtilsTest {
     }
 
     @Test
-    public void SimpleCSVReaderTest() throws IOException {
-        ICSVReader csvReader = new SimpleCSVReader("C:\\Users\\HAO\\Desktop\\test.csv");
-        List<String> line;
-        while ((line = csvReader.readNext()) != null) {
-            int i = 1;
-            for (String s : line) {
-                System.out.print(i++);
-                System.out.print("=======");
-                System.out.println(s);
+    public void SimpleCSVReaderTest() {
+        try (ICSVReader csvReader = new SimpleCSVReader("C:\\Users\\HAO\\Desktop\\test.cs")) {
+            List<String> line;
+            while ((line = csvReader.readNext()) != null) {
+                int i = 1;
+                for (String s : line) {
+                    System.out.print(i++);
+                    System.out.print("=======");
+                    System.out.println(s);
+                }
             }
+        } catch (IOException e) {
+            System.out.println(e);
+            System.out.println(Arrays.toString(e.getStackTrace()));
         }
     }
 }
