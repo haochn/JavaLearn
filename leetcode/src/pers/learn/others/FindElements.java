@@ -53,6 +53,7 @@ public class FindElements {
         if (root == null) {
             return;
         }
+        root.val = val;
         set.add(val);
         dfs(root.left, 2 * val + 1);
         dfs(root.right, 2 * val + 2);
