@@ -32,4 +32,10 @@ public class SolutionTest {
         Solution solution = new Solution();
         solution.capitalizeTitle("capiTalIze tHe titLe");
     }
+
+    @Test
+    public void maximumOddBinaryNumberTest() {
+        Solution solution = new Solution();
+        solution.maximumOddBinaryNumber("010");
+    }
 }
